@@ -103,7 +103,7 @@ function setMole() {
   }
 
   let mole = document.createElement("img");
-  mole.src = "./monty-mole.png";
+  mole.src = "./assets/monty-mole.png";
 
   let num = getRandomTile();
 
@@ -124,10 +124,10 @@ function setPlants() {
   currPlantTiles = [];
 
   let plant1 = document.createElement("img");
-  plant1.src = "./piranha-plant.png";
+  plant1.src = "./assets/piranha-plant.png";
 
   let plant2 = document.createElement("img");
-  plant2.src = "./piranha-plant.png";
+  plant2.src = "./assets/piranha-plant.png";
 
   let num1 = getRandomTile();
   let num2 = getRandomTile();
