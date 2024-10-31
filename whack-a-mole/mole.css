@@ -1,20 +1,58 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background: url("/whack-a-mole/assets/mole-bg.png");
+  background: url("./assets/mole-bg.png");
   background-size: cover;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+h1 {
+  color: #402a23;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+#player-name {
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  font-size: 0.75rem;
+  border: 2px solid #402a23;
+  border-radius: 3px;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer {
+  background-color: white;
+  border: 2px solid #402a23;
+  border-radius: 3px;
+  padding: 6px;
+}
+
+#score {
+  background-color: white;
+  border: 2px solid #402a23;
+  border-radius: 3px;
+  padding: 6px;
+}
+
 #board {
-  width: 40vw;
-  height: 40vw;
+  width: 35vw;
+  height: 35vw;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  background: url("/whack-a-mole/assets/soil.png");
+  background: url("./assets/soil.png");
   background-size: cover;
   border: 3px solid white;
   border-radius: 25px;
@@ -23,7 +61,7 @@ body {
 #board div {
   width: 33.33%;
   height: 33.33%;
-  background-image: url("/whack-a-mole/assets/pipe.png");
+  background-image: url("./assets/pipe.png");
   background-size: cover;
 }
 
@@ -37,22 +75,122 @@ body {
   -ms-user-select: none;
 }
 
+/* #title-panel {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+}
+
+#home-button {
+  align-self: center;
+  text-decoration: none;
+  background-color: #0066b2;
+  border-radius: 3px;
+  padding: 6px 0;
+  width: 75%;
+  color: white;
+  font-weight: bold;
+} */
+
+#nav {
+  display: flex;
+  margin-left: 33%;
+  margin-right: 33%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#start {
+  margin: 1rem;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#home {
+  text-decoration: none;
+  color: white;
+  background-color: #0047ab;
+  font-weight: bold;
+  border-radius: 2px;
+  margin: 1rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid grey;
+}
+
+#home:active {
+  background-color: lightblue;
+}
+
+#home:hover {
+  background-color: rgb(42, 104, 124);
+}
+
 #leaderboard {
   margin-top: 20px;
-  text-align: center;
+  padding: 15px;
+  width: 80%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0, 49, 0, 0.733);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#leaderboard h2 {
+  font-size: 24px;
+  color: #ffd700;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 5px;
 }
 
 #leaderboard ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 #leaderboard li {
   font-size: 18px;
-  margin: 5px 0;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#leaderboard li:last-child {
+  border-bottom: none;
+}
+
+#leaderboard li span {
+  display: inline-block;
+}
+
+#leaderboard li .player-name {
+  font-weight: bold;
+  color: #87cefa;
+  flex: 1;
+  text-align: left;
+}
+
+#leaderboard li .player-score {
+  font-weight: bold;
+  color: #32cd32;
+  text-align: right;
 }
 
 @media (max-width: 600px) {
+  #hero {
+    margin: 0 7%;
+  }
+
+  #nav {
+    margin: 0 2%;
+  }
+
   #board {
     width: 80vw;
     height: 80vw;
@@ -71,6 +209,10 @@ body {
 }
 
 @media (max-width: 400px) {
+  #hero {
+    margin: 0 7%;
+  }
+
   #board {
     width: 90vw;
     height: 90vw;
