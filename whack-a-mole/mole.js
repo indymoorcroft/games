@@ -174,7 +174,7 @@ function saveScore(name, score) {
 
   leaderboard.push({ name: name, score: score });
 
-  leaderboard.sort((a, b) => b - a);
+  leaderboard.sort((a, b) => b.score - a.score);
   leaderboard = leaderboard.slice(0, maxLeaderboardEntries);
 
   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
@@ -186,11 +186,27 @@ function displayLeaderboard() {
   const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
   const leaderboardList = document.getElementById("leaderboard-list");
+
   leaderboardList.innerHTML = "";
+
+  if (leaderboard.length === 0) {
+    leaderboardList.innerHTML = "<li>No scores yet. Be the first to play!</li>";
+    return;
+  }
 
   leaderboard.forEach((entry, index) => {
     const listItem = document.createElement("li");
-    listItem.innerText = `${index + 1}. ${entry.name}: ${entry.score}`;
+
+    const nameSpan = document.createElement("span");
+    nameSpan.className = "player-name";
+    nameSpan.innerText = `${index + 1}. ${entry.name}`;
+
+    const scoreSpan = document.createElement("span");
+    scoreSpan.className = "player-score";
+    scoreSpan.innerText = `${entry.score}`;
+
+    listItem.appendChild(nameSpan);
+    listItem.appendChild(scoreSpan);
     leaderboardList.appendChild(listItem);
   });
 }
