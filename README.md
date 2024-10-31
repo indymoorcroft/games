@@ -6,7 +6,7 @@ Hosted: https://arcade-games-3087.onrender.com
 
 This is a fun, interactive Whack-a-Mole browser game where players can click on moles to score points and avoid the dangerous plants that end the game. The game includes a timer, a scoreboard, and a leaderboard to keep track of top scores. The game has been optimised for mobile and desktop with accessible controls and visual feedback.
 
-Gameplay -
+**Gameplay**
 
 1. Scoring:
 
@@ -21,7 +21,7 @@ Gameplay -
 
 - When the game ends, your score is recorded and saved in the browser's localStorage. If it’s among the top 5 scores, it appears on the leaderboard.
 
-Technology Used -
+**Technology Used**
 
 - HTML
 - CSS
