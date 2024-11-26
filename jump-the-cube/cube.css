@@ -6,9 +6,8 @@
 body {
   background-color: #333;
   color: white;
-  height: 100vh;
-  width: 100vh;
-  position: fixed;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +18,10 @@ body {
 #canvas {
   border-radius: 5px;
   background-color: #f0f0f0;
+  width: 90vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 400px;
 }
 
 #overlay {
@@ -36,15 +39,19 @@ body {
 
 #overlay #card {
   background-color: white;
-  width: 500px;
-  height: 190px;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  padding: 20px;
   border-radius: 5px;
   animation: cardIn 1s forwards;
   display: none;
+  text-align: center;
 }
 
 #overlay #card > p {
-  font-size: 50px;
+  font-size: 6vw;
+  /* max-font-size: 50px; */
   margin-top: 10px;
   user-select: none;
 }
@@ -55,9 +62,10 @@ body {
   border: none;
   background-color: #1a8cff;
   padding: 10px;
-  width: 90%;
+  width: 100%;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 4vw;
+  /* max-font-size: 20px; */
   cursor: pointer;
 }
 
@@ -69,5 +77,29 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  #canvas {
+    width: 100%;
+    height: 70vw;
+  }
+
+  #overlay #card {
+    width: 90%;
+  }
+
+  #overlay #card > p {
+    font-size: 5vw;
+  }
+
+  #overlay #card > button {
+    font-size: 4vw;
+    padding: 8px;
   }
 }
