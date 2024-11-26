@@ -49,15 +49,18 @@ function getRandomNumber(min, max) {
 }
 
 function randomNumberInterval(timeInterval) {
+  const minDelay = 800;
+  const maxDelay = timeInterval + presetTime * 1.5;
+
   let returnTime = timeInterval;
 
   if (Math.random() < 0.5) {
-    returnTime += getRandomNumber(presetTime / 3, presetTime * 1.5);
+    returnTime += getRandomNumber(presetTime / 3, maxDelay);
   } else {
-    returnTime -= getRandomNumber(presetTime / 3, presetTime * 1.5);
+    returnTime -= getRandomNumber(presetTime / 3, maxDelay);
   }
 
-  return returnTime;
+  return Math.max(returnTime, minDelay);
 }
 
 class Player {
@@ -66,7 +69,7 @@ class Player {
     this.y = y;
     this.size = size;
     this.color = color;
-    this.jumpHeight = 12;
+    this.jumpHeight = 14;
     this.shouldJump = false;
     this.jumpCounter = 0;
     this.spin = 0;
@@ -182,11 +185,11 @@ function isPastBlock(player, block) {
 }
 
 function shouldIncreaseSpeed() {
-  if (scoreIncrement + 10 === score) {
+  if (scoreIncrement + 5 === score) {
     scoreIncrement = score;
-    enemySpeed++;
+    enemySpeed += 0.5;
 
-    presetTime >= 100 ? (presetTime -= 100) : (presetTime = presetTime / 2);
+    presetTime = Math.max(200, presetTime - 50);
 
     arrayBlocks.forEach((block) => {
       block.slideSpeed = enemySpeed;
